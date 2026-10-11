@@ -1,0 +1,19 @@
+/* ===== Shapes: 3D stage ===== */
+.sh3-stage{position:relative;margin-top:2.5rem;height:clamp(280px,46vw,440px);border-radius:28px;overflow:hidden}
+.sh3-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sh3-stage+.shape-grid{margin-top:1.25rem}
+.sh3-card{transition:border-color .3s,box-shadow .3s}
+.sh3-card.on{border-color:rgba(var(--cyan-rgb),.55);box-shadow:0 0 0 1px rgba(var(--cyan-rgb),.25),0 18px 50px -20px rgba(var(--cyan-rgb),.5)}
+/* ===== Code: lanyard + typing reveal ===== */
+.lanyard{position:relative;margin-top:2.2rem}
+.lan-swing{transform-origin:50% 0;will-change:transform}
+.lan-handle{position:relative;cursor:grab;touch-action:none;height:96px}
+.lan-handle:active{cursor:grabbing}
+.lan-strap{display:block;width:100%;height:90px;overflow:visible}
+.lan-line{fill:none;stroke:var(--cyan);stroke-width:11;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.9;filter:drop-shadow(0 0 8px rgba(var(--cyan-rgb),.5))}
+.lan-clip{position:absolute;left:50%;bottom:-2px;width:58px;height:26px;transform:translateX(-50%);border-radius:9px;background:linear-gradient(180deg,var(--line2),var(--cyan));border:1px solid var(--line2);box-shadow:0 6px 18px -6px rgba(var(--cyan-rgb),.6);z-index:2}
+.lan-clip:after{content:"";position:absolute;left:50%;bottom:5px;width:22px;height:6px;border-radius:4px;background:var(--ink);transform:translateX(-50%);opacity:.8}
+.lan-swing .code-card{margin-top:0;position:relative;box-shadow:0 30px 80px -30px rgba(var(--cyan-rgb),.35)}
+.code-pre.run .ln{animation:ln-type .55s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i,0)*55ms)}
+@keyframes ln-type{from{opacity:0;transform:translateX(-14px);filter:blur(3px);clip-path:inset(0 100% 0 0)}to{opacity:1;transform:none;filter:none;clip-path:inset(0 0 0 0)}}
+@media(prefers-reduced-motion:reduce){.code-pre.run .ln{animation:none;opacity:1;transform:none}}
